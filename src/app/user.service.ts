@@ -27,7 +27,7 @@ export class UserService{
       return this.http.post(this.url+"Change",user) as Observable<JsonResponse>;
     }
 
-    Delete(user: User) : Observable<JsonResponse>{
+    remove(user: User) : Observable<JsonResponse>{
       return this.http.post(this.url+"Delete",user) as Observable<JsonResponse>
     }
 

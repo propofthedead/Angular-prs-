@@ -9,14 +9,20 @@ import {User} from './user';
 export class AppComponent implements OnInit {
   title = 'app';
 
-  users: User[];
+  user: User;
   
+  remove():void{
+    this.usersvc.remove(this.user)
+      .subscribe(resp =>{
+        console.log(resp);
+      });
+  }
   constructor(private usersvc: UserService){}
    
   ngOnInit(){
     this.usersvc.list()
       .subscribe(resp =>{
-        this.users= resp.Data;
+        this.user= resp.Data;
         console.log(resp)
       });
   }

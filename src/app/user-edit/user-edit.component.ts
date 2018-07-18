@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import {UserService} from '../user.service';
+import {User} from '../user';
+import {JsonResponse} from '../JsonResponse';
 
 @Component({
   selector: 'app-user-edit',
@@ -7,9 +10,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UserEditComponent implements OnInit {
 
-  constructor() { }
+  user: User = new User();
+
+  change():void{
+    console.log(this.user);
+    this.Usersvc.change(this.user)
+      .subscribe(resp=>{
+        console.log(resp);
+      })
+  }
+
+  constructor(private Usersvc: UserService) { 
+
+  }
 
   ngOnInit() {
+    this.Usersvc.get(4)
   }
 
 }
