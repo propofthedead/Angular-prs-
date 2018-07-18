@@ -13,6 +13,7 @@ export class UserCreateComponent implements OnInit {
   user: User = new User();
 
   create():void{
+    console.log(this.user);
     this.Usersvc.create(this.user)
       .subscribe(resp=>{
         console.log(resp);
