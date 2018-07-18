@@ -2,8 +2,8 @@ export class User{
     Id: number;
     UserName: string;
     Password: string;
-    Firstname: string;
-    Lastname: string;
+    FirstName: string;
+    LastName: string;
     Phone: string;
     Email: string;
     IsReviewer:boolean;
