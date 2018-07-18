@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import {UserService} from '../user.service';
+import {User} from '../user';
+import {JsonResponse} from '../JsonResponse';
 
 @Component({
   selector: 'app-user-create',
@@ -7,7 +10,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UserCreateComponent implements OnInit {
 
-  constructor() { }
+  user: User = new User();
+
+  create():void{
+    this.Usersvc.create(this.user)
+      .subscribe(resp=>{
+        console.log(resp);
+      })
+  }
+
+  constructor(private Usersvc: UserService) { 
+
+  }
 
   ngOnInit() {
   }
